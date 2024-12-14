@@ -27,6 +27,17 @@
 ])
 
 ```
+ 2 - Visualizing the loss after 20,000 iterations.
+
+   ![image](https://github.com/user-attachments/assets/bf6a98ee-ee25-46f0-a87a-41ec59ed6e8b)
+
+
+
+
+
+
+
+
 
       
          

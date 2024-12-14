@@ -32,6 +32,85 @@
    ![image](https://github.com/user-attachments/assets/bf6a98ee-ee25-46f0-a87a-41ec59ed6e8b)
 
 
+3 - Evaluating the training loss and the test loss after training.
+
+   ``` Python
+
+      @torch.no_grad()
+      def split_loss(split):
+        x,y = {
+            "train" : (Xtr,Ytr),
+             "val" : (Xdev,Ydev),
+             "test" : (Xte,yte),
+        }[split]
+      
+        logits = model(x)
+        loss = F.cross_entropy(logits,y)
+        print(split,loss.item())
+      
+      split_loss("train")
+      split_loss("val")
+      split_loss("test")
+```
+
+```
+
+   train 1.797673225402832
+   val 2.061986207962036
+   test 2.0607025623321533
+
+```   
+
+4 - Generate text after training 
+
+  ``` Python
+      
+    for _ in range(20):
+     out = []
+     context = [0] * block_size
+     while True:
+       # forward pass the neural net
+       logits = model(torch.tensor([context]))
+       probs = F.softmax(logits, dim = 1)
+       # sample from distribuition
+       ix = torch.multinomial(probs,num_samples = 1).item()
+       # shift the context window and  track the samples
+       context = context[1:] + [ix]
+       out.append(ix)
+       # if we sample the special '.' token , break
+       if ix == 0:
+         break
+   
+     print(''.join(itos[i] for i in out)) # decode an print the generated word
+```
+
+```
+   ruhi.
+   raste.
+   ruley.
+   zuia.
+   hiah.
+   jazlyn.
+   daivi.
+   shono.
+   saisie.
+   evania.
+   iat.
+   rumilian.
+   riah.
+   ecr.
+   zardyana.
+   ron.
+   ster.
+   wynn.
+   riofa.
+   iste.
+```
+
+
+
+
+
 
 
 

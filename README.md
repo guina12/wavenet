@@ -2,6 +2,10 @@
 
    Aaron van Oord and other researchers from DeepMind introduced WaveNet, an innovative architecture for audio modeling, which is based on 1D dilated convolutional layers. WaveNet achieved 
    significant advancements, especially in speech synthesis tasks, such as high-quality voice synthesis, surpassing other techniques available at the time.
+   
+
+   ![image](https://github.com/user-attachments/assets/238bfa33-c888-44ac-bb98-1c8fe1e86c7a)
+
 
    1.1 - Number of parameters
     For this type of neural network architecture, the presented model has **72,617** parameters and uses stacked dilated convolution layers. The code description you provided appears to be a 
